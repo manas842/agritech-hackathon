@@ -238,7 +238,7 @@ var addSale = async () =>{
 var addLand = ()=>{
   
   Swal.fire({
-    title: 'New Sale',
+    title: 'New Land',
     html: `
       <input type="number" id="area" class="swal2-input" placeholder="Area">
       <input type="text" id="crop" class="swal2-input" placeholder="Crop">
