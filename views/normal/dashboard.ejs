@@ -22,19 +22,21 @@
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="fad fa-money-bill-alt"></i><span class="hide-menu">Loans</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Shopping</span></a></li>
+                        <li onclick="routeToDashboard()" class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li onclick="routeToLoans()" class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                aria-expanded="false"><i class="fad fa-money-bill-alt"></i><span class="hide-menu">Loans</span></a></li>
+                        <li onclick="routeToShop()" class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Shopping</span></a></li>
+                        <li onclick="routeToOrders()" class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                aria-expanded="false"><i class="fas fa-box"></i><span class="hide-menu">Orders</span></a></li>
                     </ul>
                 </nav>
             </div>
         </aside>
 
 
-        <section id="shopping">
+        <section style="display: block;" id="shopping">
             <div class="page-wrapper">
                 <div class="page-breadcrumb">
                     <div class="row align-items-center">
@@ -172,7 +174,7 @@
             </div>
         </section>
 
-        <section id="loans">
+        <section style="display: none;" id="loans">
             <div class="page-wrapper">
                 <div class="page-breadcrumb">
                     <div class="row align-items-center">
@@ -199,6 +201,56 @@
 
         </section>
 
+        <section style="display: none;" id="orders">
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                    <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                                </ol>
+                                </nav>
+                            <h1 class="mb-0 fw-bold">Orders</h1> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Fertilizer</td>
+                                <td>24-9-21</td>
+                                <td>Rs. 399</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Motor</td>
+                                <td>24-9-21</td>
+                                <td>Rs. 13000</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Equipments</td>
+                                <td>10-12-21</td>
+                                <td>Rs. 899</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+        </section>
     </div>
 
     <script src="/dashboard/assets/libs/jquery/dist/jquery.min.js"></script>
@@ -210,6 +262,28 @@
     <script src="/dashboard/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="/dashboard/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="/dashboard/dist/js/pages/dashboards/dashboard1.js"></script>
+    <script>
+
+        const shop = document.getElementById('shopping')
+        const loans = document.getElementById('loans')
+        const orders = document.getElementById('orders')
+        function routeToShop(){
+            loans.style.display = 'none'
+            shop.style.display = 'block'
+            orders.style.display = 'none'
+        }
+        function routeToDashboard(){}
+        function routeToLoans(){
+            loans.style.display = 'block'
+            shop.style.display = 'none'
+            orders.style.display = 'none'
+        }
+        function routeToOrders(){
+            loans.style.display = 'none'
+            shop.style.display = 'none'
+            orders.style.display = 'block'
+        }
+    </script>
 </body>
 
 </html>
