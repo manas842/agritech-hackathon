@@ -92,6 +92,28 @@ client.connect(async (err) => {
       });
     // console.log(Buffer.from('SGVsbG8gV29ybGQ=', 'base64').toString('ascii'));
   });
+  app.get('/dashboard/*', (req, res) => {
+    if (fs.existsSync(`${__dirname}/views/normal/dashboard.ejs`)) {
+      try {
+        if (req.cookies.userToken) {
+          client
+            .db('agritech')
+            .collection('users')
+            .findOne({ token: req.cookies.userToken.slice(0, -13) }, (errs, data) => {
+              if (errs)res.send({ status: 'error', error: 'Server error please try again later' });
+              else if (data)res.render('normal/dashboard', { url: decodeURI(path.normalize(url.parse(req.url).pathname)), data });
+              else res.send({ status: 'error', error: 'User Token Issue' });
+            });
+        } else {
+          res.redirect('/login/');
+        }
+      } catch (renderError) {
+        res.render('normal/404', { error: renderError, url: decodeURI(path.normalize(url.parse(req.url).pathname)) });
+      }
+    } else {
+      res.render('normal/404', { error: 'Page Does Not Exists', url: decodeURI(path.normalize(url.parse(req.url).pathname)) });
+    }
+  });
 
   app.get('/:type/:view/', (req, res) => {
     if (fs.existsSync(`${__dirname}/views/${req.params.type}/${req.params.view}.ejs`)) {
