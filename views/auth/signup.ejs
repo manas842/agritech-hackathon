@@ -80,6 +80,10 @@
 
     <script>
         const signUp = document.getElementById('xs-signup-form')
+        if(document.cookie.split('=')[0] === 'token'){
+            console.log(document.cookie.split('=')[1])
+            window.location.href ='/normal/dashboard'
+        }
         function validate(){
             const email = document.getElementById("xs_contact_email").value 
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
