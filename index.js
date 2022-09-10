@@ -102,13 +102,13 @@ client.connect(async (err) => {
           client
             .db('agritech')
             .collection('users')
-            .findOne({ token: req.cookies.userToken.slice(0, -13) }, (errs, data) => {
+            .findOne({ token: req.cookies.userToken.slice(0, -13) }, (errs, dataUser) => {
               if (errs)res.send({ status: 'error', error: 'Server error please try again later' });
-              else if (data)res.render('normal/dashboard', { url: decodeURI(path.normalize(url.parse(req.url).pathname)), data });
+              else if (dataUser)res.render('normal/dashboard',dataUser);
               else res.send({ status: 'error', error: 'User Token Issue' });
             });
         } else {
-          res.redirect('/login/');
+          res.redirect('/auth/login/');
         }
       } catch (renderError) {
         res.render('normal/404', { error: renderError, url: decodeURI(path.normalize(url.parse(req.url).pathname)) });

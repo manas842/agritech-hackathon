@@ -80,9 +80,9 @@
 
     <script>
         const signUp = document.getElementById('xs-signup-form')
-        if(document.cookie.split('=')[0] === 'token'){
+        if(document.cookie.split('=')[0] === 'userToken'){
             console.log(document.cookie.split('=')[1])
-            window.location.href ='/normal/dashboard'
+            window.location.href ='/dashboard/'
         }
         function validate(){
             const email = document.getElementById("xs_contact_email").value 
@@ -120,6 +120,12 @@
                 errorArea.innerHTML=''
             },4000)
         }
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
         async function postData(url , data) {
             // const response = await fetch(url, {
             //     method: 'POST',
@@ -132,8 +138,9 @@
                 contentType: "application/json",
                 dataType: 'json'
             }).then((response)=>{
-                document.cookie = 'token' + '=' + response.data;
+                setCookie('userToken',response.data,5);
                 console.log('cookie set',response.data)
+                window.location.assign("/dashboard/")
                 })
             }
 
