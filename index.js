@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -8,6 +9,7 @@ const fs = require('fs');
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -52,7 +54,7 @@ client.connect(async (err) => {
       );
   });
 
-  app.post('/signup/', async (req, res) => {
+  app.post('/auth/signup/', async (req, res) => {
     if (!req.body.email || !req.body.name || !req.body.password) {
       res.send({ status: 'error', error: 'Wrong API Data Sent' });
     } else {
@@ -113,8 +115,18 @@ client.connect(async (err) => {
       res.render('normal/404', { error: 'Page Does Not Exists', url: decodeURI(path.normalize(url.parse(req.url).pathname)) });
     }
   });
+  app.get('/*', (req, res) => {
+    if (req.cookies.userToken) {
+      client
+        .db('agritech')
+        .collection('users')
+        // eslint-disable-next-line no-shadow
+        .findOne({ token: req.cookies.userToken }, (err, data) => {
+          res.render('normal/index', { user: data });
+        });
+    } else { res.render('normal/index', { user: null }); }
+  });
 
-  app.get('*', (req, res) => { res.send({ status: 'error', error: 'Endpoint Not Allowed' }); });
   app.post('*', (req, res) => { res.send({ status: 'error', error: 'Endpoint Not Allowed' }); });
 
   app.listen(process.env.PORT || 5001, () => {

@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agrihelp - Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/fontawesome-min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/xsIcon.css">
+    <link rel="stylesheet" href="/assets/css/iconmoon.css">
+    <link rel="stylesheet" href="/assets/css/isotope.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+
+    <script src="/assets/js/jquery-3.2.1.min.js" defer></script>
+    <script src="/assets/js/bootstrap.min.js" defer></script>
+    <script src="/assets/js/jquery-mixtub.js" defer></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js" defer></script>
+    <script src="/assets/js/owl.carousel.min.js" defer></script>
+    <script src="/assets/js/navigation.js" defer></script>
+    <script src="/assets/js/jquery.appear.min.js" defer></script>
+    <script src="/assets/js/isotope.js" defer></script>
+    <script src="/assets/js/wow.min.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="preloader-wrapper">
+            <div class="la-ball-clip-rotate-pulse la-2x">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="login-banner" style="background-image:url('/assets/images/loginBG.jpg')">
+        <div class="h-100">
+            <div class="h-100">
+                <div class="container h-100 ">
+                    <div class="row justify-content-center h-100 ">
+                        <div class="col-lg-6 my-auto">
+                            <h2 class="banner-inner-title text-light text-center" style="text-shadow: 0px 0px 30px black;">Sign Up</h2>
+                            <div class="xs-form-group shadow" style="background-color:#f7f7f7aa;">
+                                <form id="xs-signup-form" class="xs-form">
+                                    <a href="/">
+                                        <img src="/assets/images/logo.svg" class="w-75 mb-4 mx-auto d-block">
+                                    </a>
+                                    <div id="errorArea"></div>
+                                    <input type="text" class="form-control" name="username" placeholder="Your Name" id="xs_contact_name" required>
+                                    <input type="email" class="form-control" name="email" placeholder="Your email" id="xs_contact_email" required>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" id="xs_contact_subject" required>
+                                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" id="xs_contact_confirmPassword" required>
+                                </form>
+                                <div class="d-flex justify-content-around align-items-end">
+                                    <button onclick="validate()" class="xs-btn col-5" id="xs_contact_submit">SignUp</button><h5 class="text-light">or</h5>
+                                    <a href="/auth/login/" class="xs-btn col-5 text-light text-center" id="xs_contact_submit">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const signUp = document.getElementById('xs-signup-form')
+        function validate(){
+            const email = document.getElementById("xs_contact_email").value 
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+            {
+                showError("You have entered an invalid email address!")
+                return (false)
+            }
+            const name = document.getElementById("xs_contact_name").value
+            const password = document.getElementById("xs_contact_subject").value
+            const confirmPassword = document.getElementById("xs_contact_confirmPassword").value
+            
+            if(password !== confirmPassword){
+                document.getElementById("xs_contact_name").value=''
+                document.getElementById("xs_contact_email").value=''
+                document.getElementById("xs_contact_subject").value=''
+                document.getElementById("xs_contact_confirmPassword").value=''
+                showError('Please check the password again')
+            }
+
+            
+            const userCred = {
+                name,
+                email,
+                password,
+                confirmPassword,
+            }
+        }
+        function showError(e){
+            const errorArea = document.getElementById('errorArea')
+            errorArea.innerHTML = `<div style="color:red; text-align:center;">${e}</div>`
+            setTimeout(() => {
+                errorArea.innerHTML=''
+            },4000)
+        }
+    </script>
+</body>
+
+</html>

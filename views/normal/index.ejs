@@ -1,0 +1,427 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Agrihelp</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon/">
+    <link rel="apple-touch-icon" href="/apple-touch-icon/">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/iconmoon.css">
+    <link rel="stylesheet" href="/assets/css/isotope.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <script src="/assets/js/jquery-3.2.1.min.js" defer></script>
+    <script src="/assets/js/bootstrap.min.js" defer></script>
+    <script src="/assets/js/jquery-mixtub.js" defer></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js" defer></script>
+    <script src="/assets/js/owl.carousel.min.js" defer></script>
+    <script src="/assets/js/navigation.js" defer></script>
+    <script src="/assets/js/jquery.appear.min.js" defer></script>
+    <script src="/assets/js/isotope.js" defer></script>
+    <script src="/assets/js/wow.min.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="preloader-wrapper">
+            <div class="la-ball-clip-rotate-pulse la-2x">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="xs-header-middle">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center">
+                    <div class="logo">
+                        <a href="/">
+                            <h2 style="color:#008435">Welcome To AgriHelp</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <header class="xs-header-nav">
+        <div class="container">
+            <div class="row  menu-item">
+                <div class="col-lg-12">
+                    <nav id="navigation1" class="navigation header-nav clearfix">
+                        <div class="nav-header">
+                            <a href="/index/" class="mobile-logo">
+                                <img src="/assets/images/logo-light.svg" class="w-75 mx-auto d-block" alt="logo light">
+                            </a>
+                            <div class="nav-toggle"></div>
+                        </div>
+                        <div class="nav-menus-wrapper clearfix">
+                            <div class="row justify-content-around align-items-center p-1">
+                                <div class="col-md-4">
+                                    <img src="/assets/images/logo-light.svg" class="w-75 mx-auto d-block" alt="logo light">
+                                </div>
+                                <div class="col-md-3 row justify-content-center align-items-center rounded p-1">
+                                    <%if(user){%>
+                                        <div class="mx-2">
+                                            <p class="mb-0 text-light">User1</p>
+                                        </div>
+                                        <div class="rounded-circle user-image-logo"></div>
+                                    <%}else{%>
+                                        <div class="xs-btn-wraper">
+                                            <a href="/auth/signup/" class="xs-btn">
+                                                Sign Up
+                                            </a>
+                                        </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="xs-banner-sec owl-carousel banner-slider">
+
+        <div class="banner-slider-item banner-item1"
+            style="background-image: url(/assets/images/banner-slider/banner_slider_1.jpg);">
+            <div class="slider-table">
+                <div class="slider-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="banner-content text-center">
+                                    <h2>Best Agriculture Services</h2>
+                                    <p>No farmer, No food
+                                    </p>
+                                    <div class="xs-btn-wraper">
+                                        <a href="/auth/login/" class="xs-btn">
+                                            Login/ SignUp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-slider-item banner-item2"
+            style="background-image: url(assets/images/banner-slider/banner_slider_2.jpg);">
+            <div class="slider-table">
+                <div class="slider-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-9">
+                                <div class="banner-content">
+                                    <h2>Agriculture Loans</h2>
+                                    <p>
+                                    </p>
+                                    <div class="xs-btn-wraper">
+                                        <a href="/auth/login/" class="xs-btn">
+                                            Login/ SignUp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-slider-item banner-item3"
+            style="background-image: url(assets/images/banner-slider/banner_slider_4.jpg);">
+            <div class="slider-table">
+                <div class="slider-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 offset-lg-4">
+                                <div class="banner-content text-right">
+                                    <h2>Land Mangement</h2>
+                                    <p>
+                                    </p>
+                                    <div class="xs-btn-wraper">
+                                        <a href="/auth/login/" class="xs-btn">
+                                            Login/ SignUp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="promo-area-sec">
+        <div class="container">
+            <div class="promo-content-item">
+                <div class="row">
+                    <div class="col-md-4 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="300ms">
+                        <div class="single-promo-content">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3 class="xs-service-title">Loans</h3>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="400ms">
+                        <div class="single-promo-content">
+                            <i class="fas fa-tractor"></i>
+                            <h3 class="xs-service-title">Land Management</h3>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="500ms">
+                        <div class="single-promo-content">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h3 class="xs-service-title">Finance</h3>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-sec section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 wow fadeInUp align-self-center" data-wow-duration="1s">
+                    <div class="about-content">
+                        <h2 class="column-title"> <span class="xs-title">About Us</span>Welcome to Agrihelp!</h2>
+                        <p>
+                            A farmer is a magician who creates money out of mud," according to Amit Kalantri. India is an agricultural country, and farmers are the heart of our country. As we all know, life is impossible without a soul.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-7 align-self-center wow fadeInUp" data-wow-duration="1s">
+                    <div class="about-video-item">
+                        <div class="about-video-img">
+                            <img src="/assets/images/about_front.jpg" alt="">
+                        </div>
+                        <img class="about-img2" src="/assets/images/about_back.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ourServices" class="service-sec section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-item">
+                        <h2 class="section-title">
+                            <span class="xs-title">Service we provide</span>
+                            Our Services
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s">
+                    <div class="single-service">
+                        <div class="service-img">
+                            <img src="/assets/images/services/service_style_2.jpg" alt="">
+                            <i class="icon-Our_service_2"></i>
+                        </div>
+                        <h3 class="xs-service-title"><a href="/#">Provide Loans</a> </h3>
+                        <p>
+                            AgriHelp is a one-stop shop for all of your financial requirements. We strive to provide you with the best services that are both convenient and quick. We provide a comparative analysis of what different banks are offering for personal loans and assist you in making your final decision.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s">
+                    <div class="single-service">
+                        <div class="service-img">
+                            <img src="/assets/images/services/service_style_3.jpg" alt="">
+                            <i class="far fa-tractor"></i>
+                        </div>
+                        <h3 class="xs-service-title"><a href="/#">Help in Land Management</a> </h3>
+                        <p>
+                            Land management can have an impact on terrestrial ecosystems in both positive and negative ways. Over- or mis-use of land can degrade and reduce productivity, as well as disrupt natural equilibrium.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s">
+                    <div class="single-service">
+                        <div class="service-img">
+                            <img src="/assets/images/services/service_style_4.jpg" alt="">
+                            <i class="fas fa-sack-dollar"></i>
+                        </div>
+                        <h3 class="xs-service-title"><a href="/#">Financial support</a> </h3>
+                        <p>
+                            As farmers continue to face incredible threats to their survival, our grant decisions were guided by the need to first and foremost strengthen organizations that provide essential resources to keep family farmers on the land. We are so grateful for the hard work and commitment of folks across the country who fight for family farms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us-sec section-padding section-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="300ms">
+                    <div class="why-choose-img">
+                        <img src="/assets/images/why-choose-img.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp align-self-center" data-wow-duration="1s">
+                    <div class="why-choose-content">
+                        <h2 class="column-title">
+                            <span class="xs-title">Our special support</span>
+                            Why Choose Us
+                        </h2>
+                        <p>
+                            We are a one-stop solution for farmers, offering loan facilities, land management, shopping
+                            advice, and much more in the back. It is advantageous for our farmers to choose us and work
+                            with us.
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="single-why-choose-list">
+                                    <h3><i class="icon icon-invest"></i> No hidden Cost</h3>
+                                    <p>Fees are based on actual hours spent on site.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="single-why-choose-list">
+                                    <h3><i class="icon icon-users2"></i> Dedicated team</h3>
+                                    <p>Our team work even in bad weather.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="single-why-choose-list">
+                                    <h3><i class="icon icon-heart-pulse"></i> Fresh Environment</h3>
+                                    <p>To improve air quality with a healthy farm.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="single-why-choose-list">
+                                    <h3><i class="icon-Free_tips"></i>Free Farming tips</h3>
+                                    <p>To get free tips how to maintain your Farm.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action-sec">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6 xs-padding-0 call-action-item">
+                    <div class="call-to-action-content">
+                        <h2 class="column-title white"><span>Lets start your</span><br />journey with us</h2>
+                        <p>Lets make your crops and dreams come true, together.
+                        </p>
+                        <div class="call-to-btn">
+                            <a href="#ourServices" class="xs-btn fill">Our Services</a>
+                            <a href="/contact/" class="xs-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="xs-footer-sec">
+        <div class="container">
+            <div class="footer-top-item">
+                <div class="xs-back-to-top">
+                    <a href="/#" class="BackTo"><i class="fa fa-angle-double-up"></i> </a>
+                </div>
+            </div>
+            <div class="footer-item">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="widgets">
+                            <ul class="footer-social">
+                                <li>
+                                    <a href="/#" class="text-light"><i class="fab fa-facebook-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/#" class="text-light"><i class="fab fa-twitter"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="/#" class="text-light"><i class="fab fa-google-plus"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="/#" class="text-light"><i class="fab fa-instagram"></i> </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widgets">
+                            <h3 class="widget-title">
+                                <a class="text-light" href="/">Home</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widgets">
+                            <a href="#ourServices">
+                                <h3 class="widget-title">Our Services</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright 2018. All
+                            Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-bottom-menu">
+                            <li>
+                                <a href="/#">Terms of Service </a>
+                            </li>
+                            <li>
+                                <a href="/#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

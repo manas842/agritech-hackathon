@@ -1,0 +1,17 @@
+.user-image-logo{
+    --size: 3rem;
+
+    height: var(--size);
+    width: var(--size);
+    background-color: black;
+}
+
+.footer-social li a i{
+    font-size: 2.2rem;
+}
+.login-banner{
+    background-image: url('/assets/images/contact-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
