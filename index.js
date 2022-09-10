@@ -108,7 +108,7 @@ client.connect(async (err) => {
               else res.send({ status: 'error', error: 'User Token Issue' });
             });
         } else {
-          res.redirect('/login/');
+          res.redirect('/auth/login/');
         }
       } catch (renderError) {
         res.render('normal/404', { error: renderError, url: decodeURI(path.normalize(url.parse(req.url).pathname)) });
