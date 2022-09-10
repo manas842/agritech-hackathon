@@ -55,6 +55,7 @@ client.connect(async (err) => {
   });
 
   app.post('/auth/signup/', async (req, res) => {
+    console.log(req.body);
     if (!req.body.email || !req.body.name || !req.body.password) {
       res.send({ status: 'error', error: 'Wrong API Data Sent' });
     } else {
@@ -62,10 +63,12 @@ client.connect(async (err) => {
       client
         .db('agritech')
         .collection('users')
-        .findOne({ token: Buffer.from(`${req.body.email}-@-${req.body.password}`).toString('base64') }, (errs, data) => {
-          if (errs)res.send({ status: 'error', error: 'Server error please try again later' });
-          else if (data)res.send({ status: 'error', error: 'User Already Exists' });
-          else {
+        .findOne({ token: Buffer.from(`${req.body.email}-@-${req.body.password}`).toString('base64') }, (errs, dataUser) => {
+          if (errs) {
+            res.send({ status: 'error', error: 'Server error please try again later' });
+          } else if (dataUser) {
+            res.send({ status: 'error', error: 'User Already Exists' });
+          } else {
             client
               .db('agritech')
               .collection('users')
@@ -73,7 +76,7 @@ client.connect(async (err) => {
                 token: Buffer.from(`${req.body.email}-@-${req.body.password}`).toString('base64'), email: req.body.email, name: req.body.name, data: { land: [], loans: [] },
               }, (error, dataInsert) => {
                 if (error)res.send({ status: 'error', error: 'Server error please try again later' });
-                else if (dataInsert)res.send({ status: 'error', error: 'User Already Exists' }); res.send({ status: 'success', data: 'User Created Successfully' });
+                else if (dataInsert)res.send({ status: 'success', data: `${Buffer.from(`${req.body.email}-@-${req.body.password}`).toString('base64')}${new Date().getTime()}` });
               });
           }
         });
