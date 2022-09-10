@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Flexy lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Flexy admin lite design, Flexy admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Flexy Admin Lite Template by WrapPixel</title>
+    <meta name="robots" content="noindex,nofollow">    
+    <title>Agrihelp - dashboard</title>
     <link rel="icon" type="image/png" sizes="16x16" href="/dashboard/assets/images/favicon.png">
     <link href="/dashboard/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="/dashboard/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
@@ -30,15 +30,8 @@
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header" data-logobg="skin6">
-                    <a class="navbar-brand" href="index.html">
-                        <b class="logo-icon">
-                            <img src="/dashboard/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <img src="/dashboard/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                        </b>
-                        <span class="logo-text">
-                            <img src="/dashboard/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                            <img src="/dashboard/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                        </span>
+                    <a class="navbar-brand" href="/">
+                        <img src="/dashboard/assets/images/logo.svg" class="w-100" alt="homepage" class="dark-logo" />
                     </a>
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                             class="mdi mdi-menu"></i></a>
@@ -75,151 +68,400 @@
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                                    class="hide-menu">Table</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                                    class="hide-menu">Shopping</span></a></li>
+                        <li onclick="routeToDashboard()" class="sidebar-item"> <a
+                                class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                                    class="mdi mdi-view-dashboard"></i><span class="hide-menu">Land Management</span></a></li>
+                        <li onclick="routeToLoans()" class="sidebar-item"> <a
+                                class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                                    class="mdi mdi-cash-multiple"></i><span class="hide-menu">Loans</span></a></li>
+                        <li onclick="routeToShop()" class="sidebar-item"> <a
+                                class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                                    class="mdi mdi-cart-outline"></i><span class="hide-menu">Shopping</span></a></li>
+                        <li onclick="routeToOrders()" class="sidebar-item"> <a
+                                class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"><i
+                                    class="mdi mdi-cart-outline"></i><span class="hide-menu">Orders</span></a></li>
                     </ul>
-
                 </nav>
             </div>
         </aside>
-        <div class="page-wrapper">
-            <div class="page-breadcrumb">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 d-flex align-items-center">
-                              <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
-                              <li class="breadcrumb-item active" aria-current="page">FINANCE MANAGEMENT</li>
-                            </ol>
-                          </nav>
-                        <h1 class="mb-0 fw-bold">FINANCE</h1> 
-                    </div>
-                    <div class="col-6">
-                        <div class="text-end upgrade-btn">
-                            <div class="ms-auto">
-                                <div class="dl">
-                                    <select id="land-data" class="form-select shadow-none">
-                                        <option value="0" selected>LAND-1</option>
-                                        <% for(let i=1;i<data.land.length;i++){ %>
-                                        <option value="<%=i%>">LAND - <%=i+1%></option>
-                                        <%}%>
-                                    </select>
-                                </div>
-                            </div>
+
+        <section style="display: block;" id="landManagement">
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                  <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">LAND MANAGEMENT</li>
+                                </ol>
+                              </nav>
+                            <h1 class="mb-0 fw-bold">FINANCE</h1> 
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">EXPENDITURE</h4>
-                                </div>
-                                <button onclick="addExp()" id="addExpenditure" class="btn col-10 mx-auto btn-primary">
-                                    Add New Expenditure
-                                </button>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">S.No</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Qty</th>
-                                                <th scope="col">Amt.</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="expenditure-data">
-                                            <% for(let i=0 ; i< data.land[0].expenditure.length;i++ ){ %>
-                                            <tr>
-                                                <th scope="row"><%= i+1 %></th>
-                                                <td><%= data.land[0].expenditure[i].date %></td>
-                                                <td><%= data.land[0].expenditure[i].name %></td>
-                                                <td><%= data.land[0].expenditure[i].quantity %></td>
-                                                <td><%= data.land[0].expenditure[i].rate %></td>
-                                                <td><button onclick="removeExp(<%=i%>)" class="btn btn-danger"><img src="https://img.icons8.com/ios-glyphs/20/000000/filled-trash.png"/></button></td>
-                                            </tr>
+                        <div class="col-6">
+                            <div class="text-end upgrade-btn">
+                                <div class="ms-auto">
+                                    <div class="dl">
+                                        <select id="land-data" class="form-select shadow-none">
+                                            <% for(let i=0;i<data.land.length;i++){ %>
+                                            <option value="<%=i%>">LAND - <%=i+1%></option>
                                             <%}%>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Sales</h4>
-                                </div>
-                                <button onclick="addSale()" id="addSale" class="btn col-10 mx-auto btn-primary">
-                                    Add New Sale
-                                </button>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">S.No</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Sale Name</th>
-                                                <th scope="col">Amt.</th>
-                                                <th scope="col">Profit</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="sales-data">
-                                            <% for(let i=0 ; i< data.land[0].sales.length;i++ ){ %>
-                                            <tr>
-                                                <th scope="row"><%= i+1 %></th>
-                                                <td><%= data.land[0].sales[i].date %></td>
-                                                <td><%= data.land[0].sales[i].product %></td>
-                                                <td><%= data.land[0].sales[i].amount %></td>
-                                                <td><%= data.land[0].sales[i].profit||"N/A" %></td>
-                                            </tr>
-                                            <%}%>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-md-flex">
-                                    <div>
-                                        <h4 class="card-title">Sales Analytics</h4>
-                                        <h5 class="card-subtitle">Overview of your sales</h5>
+                                        </select>
                                     </div>
                                 </div>
-                                <div id="ct-chart" class="col-10 mx-auto">
-
+                            </div>
+                            <button onclick="addLand()" class="btn btn-primary mt-2 w-100">Add Land</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">EXPENDITURE</h4>
+                                    </div>
+                                    <button onclick="addExp()" id="addExpenditure" class="btn col-10 mx-auto btn-primary">
+                                        Add New Expenditure
+                                    </button>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">S.No</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Qty</th>
+                                                    <th scope="col">Amt.</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="expenditure-data">
+                                                <%if(data.land.length>0){%>
+                                                <% for(let i=0 ; i< data.land[0].expenditure.length;i++ ){ %>
+                                                <tr>
+                                                    <th scope="row"><%= i+1 %></th>
+                                                    <td><%= data.land[0].expenditure[i].date %></td>
+                                                    <td><%= data.land[0].expenditure[i].name %></td>
+                                                    <td><%= data.land[0].expenditure[i].quantity %></td>
+                                                    <td><%= data.land[0].expenditure[i].rate %></td>
+                                                    <td><button onclick="removeExp(<%=i%>)" class="btn btn-danger"><img src="https://img.icons8.com/ios-glyphs/20/000000/filled-trash.png"/></button></td>
+                                                </tr>
+                                                <%}%>
+                                                <%}%>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Sales</h4>
+                                    </div>
+                                    <button onclick="addSale()" id="addSale" class="btn col-10 mx-auto btn-primary">
+                                        Add New Sale
+                                    </button>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">S.No</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Sale Name</th>
+                                                    <th scope="col">Amt.</th>
+                                                    <th scope="col">Profit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="sales-data">
+                                                
+                                                <%if(data.land.length>0){%>
+                                                <% for(let i=0 ; i< data.land[0].sales.length;i++ ){ %>
+                                                <tr>
+                                                    <th scope="row"><%= i+1 %></th>
+                                                    <td><%= data.land[0].sales[i].date %></td>
+                                                    <td><%= data.land[0].sales[i].product %></td>
+                                                    <td><%= data.land[0].sales[i].amount %></td>
+                                                    <td><%= data.land[0].sales[i].profit||"N/A" %></td>
+                                                </tr>
+                                                <%}%>
+                                                <%}%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-md-flex">
+                                        <div>
+                                            <h4 class="card-title">Sales Analytics</h4>
+                                            <h5 class="card-subtitle">Overview of your sales</h5>
+                                        </div>
+                                    </div>
+                                    <div id="ct-chart" class="col-10 mx-auto">
+    
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <footer class="footer text-center">
+                    Base Components used from flexy lite <a href="https://www.wrappixel.com">WrapPixel</a>.
+                </footer>
             </div>
-            <footer class="footer text-center">
-                Base Components used from flexy lite <a href="https://www.wrappixel.com">WrapPixel</a>.
-            </footer>
-        </div>
+        </section>
+        
+        <section style="display: none;" id="shopping">
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                    <li class="breadcrumb-item"><a href="index.html"
+                                            class="link"><i
+                                                class="mdi mdi-home-outline fs-4"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        Shopping</li>
+                                </ol>
+                            </nav>
+                            <h1 class="mb-0 fw-bold">Shopping</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+
+
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Equipments</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage1.jpg">
+                                    <h4 class="py-1">
+                                        Kraft Seeds 7Pcs Gardening Hand Tool Kit for Home
+                                        Gardening (Hand Cultivator, Hand Fork, Big Hand Trowel,
+                                        Small Hand Trowel, Hand
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.999</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Machinary</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage2.jpg">
+                                    <h4 class="py-1">
+                                        NEPTUNE SIMPLIFY FARMING NC-41 1400W Electric Portable
+                                        Garden Tiller, Cultivator and Rotavator (Orange)
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.13500</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Fertilizers</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage3.jpg">
+                                    <h4 class="py-1">
+                                        TrustBasket Organic Vermicompost Fertilizer Manure for
+                                        Plants - 5 KG
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.339</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Pesticides</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage4.jpg">
+                                    <h4 class="py-1">
+                                        UTKARSH Huminoz-98 Humic Acid (98%) for Plant | Plant
+                                        Fertilizer for Potted Plants | Plant Growth Enhancer,
+                                        Soil Conditioner, Improves Plant Root System (900gm)
+                                        (Set of 2)
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.699</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Equipments</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage5.jpg">
+                                    <h4 class="py-1">
+                                        Sharpex Telescopic Metal Rake, Adjustable Rake for Quick
+                                        Clean Up of Lawn and Yard, Garden Leaf Rake, Expanding
+                                        Handle with Adjustable 31 to 64 Inch Width Folding Head
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.899</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Machinary</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage6.jpg">
+                                    <h4 class="py-1">
+                                        Balwaan Brush Cutter 4 Stroke Side Pack Crop Cutter
+                                        Machine | Grass Trimming | Lawn Trimming | Farm Weeding
+                                        | Weeding in Fruits and Vegetables
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.12000</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Fertilizers</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage7.jpg">
+                                    <h4 class="py-1">
+                                        TrustBasket Neem Cake Powder Organic Fertilizer and Pest
+                                        Repellent for Plants (450 GMS) - Set of 2
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.235</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 p-2">
+                            <div class="card h-100 my-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Pesticides</h4>
+                                </div>
+                                <div class="text-center w-100 px-2">
+                                    <img class="w-100" src="/assets/images/shopping/shoppingImage8.jpg">
+                                    <h4 class="py-1">
+                                        TrustBasket Neem Cake Powder Organic Fertilizer and Pest
+                                        Repellent for Plants (450 GMS)
+                                    </h4>
+                                    <button class="btn btn-outline-secondary my-2">Purchase
+                                        Rs.200</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+        <section style="display: none;" id="loans">
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                    <li class="breadcrumb-item"><a href="index.html" class="link"><i
+                                                class="mdi mdi-home-outline fs-4"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Loans</li>
+                                </ol>
+                            </nav>
+                            <h1 class="mb-0 fw-bold">Loans</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 border shadow p-5 m-5">
+                            <h1 class=" m-5 p-5">
+                                Loan facilities are not available yet.
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+
+        <section style="display: none;" id="orders">
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                    <li class="breadcrumb-item"><a href="index.html" class="link"><i
+                                                class="mdi mdi-home-outline fs-4"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                                </ol>
+                            </nav>
+                            <h1 class="mb-0 fw-bold">Orders</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Fertilizer</td>
+                                    <td>24-9-21</td>
+                                    <td>Rs. 399</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Motor</td>
+                                    <td>24-9-21</td>
+                                    <td>Rs. 13000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Equipments</td>
+                                    <td>10-12-21</td>
+                                    <td>Rs. 899</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </section>
     </div>
     <script>
         var userData = <%-JSON.stringify(data)%>;

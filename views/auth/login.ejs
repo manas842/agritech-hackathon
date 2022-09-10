@@ -79,6 +79,11 @@
 
     <script>
         const login = document.getElementById('xs-login-form')
+
+        if(document.cookie.split('=')[0] === 'userToken'){
+            window.location.href = '/dashboard'
+        }
+
         function validate(){
             const email = document.getElementById("xs_contact_email").value 
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
@@ -94,7 +99,7 @@
                 password,
             }
 
-            postData('/auth/login',userCred)
+            postData('/login/',userCred)
         }
         function showError(e){
             const errorArea = document.getElementById('errorArea')
@@ -103,7 +108,12 @@
                 errorArea.innerHTML=''
             },4000)
         }
-
+        function setCookie(cname, cvalue) {
+            const d = new Date();
+            d.setTime(d.getTime() + (5 * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
         async function postData(url , data) {
             // const response = await fetch(url, {
             //     method: 'POST',
@@ -116,9 +126,10 @@
                 contentType: "application/json",
                 dataType: 'json'
             }).then((response)=>{
-                document.cookie = 'token' + '=' + response.data;
-                console.log('cookie set',response.data)
-                })
+                const userToken= response.data;
+                setCookie('userToken', userToken)
+                window.location.href = '/dashboard'
+            })
             }
     </script>
 </body>

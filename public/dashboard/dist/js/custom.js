@@ -222,17 +222,59 @@ var addSale = async () =>{
       `
     })
     $("#expenditure-data").html(exp)
+    chart.update({
+      labels: userData.land[$("#land-data").val()].sales.map((e)=>e.date),
+      series: [
+        userData.land[$("#land-data").val()].sales.map((e)=>e.amount),
+        userData.land[$("#land-data").val()].sales.map((e)=>e.profit)
+      ]
+    })
     $(".loader").hide()
     Swal.fire(`Sale Added`)
   })
   
 }
 
+var addLand = ()=>{
+  
+  Swal.fire({
+    title: 'New Sale',
+    html: `
+      <input type="number" id="area" class="swal2-input" placeholder="Area">
+      <input type="text" id="crop" class="swal2-input" placeholder="Crop">
+      <input type="text" id="name" class="swal2-input" placeholder="Name">
+    `,
+    confirmButtonText: 'Add Land',
+    focusConfirm: false,
+    allowOutsideClick: false,
+    preConfirm: () => {
+      const area = parseInt(Swal.getPopup().querySelector('#area').value)
+      const crop = Swal.getPopup().querySelector('#crop').value
+      const name = Swal.getPopup().querySelector('#name').value
+      if (!area || !crop || !name) {
+        Swal.showValidationMessage(`Please enter all input fields`)
+      }
+      return { area,crop,name }
+    }
+  }).then(async (result) => {
+    result.value.sales=[];
+    result.value.expenditure=[];
+    userData.land.push(result.value)
+    $(".loader").show();
+    await updateData(userData);
+    $("#land-data").html(userData.land.map((e,i)=>`<option value="${i}">${e.name}</option>`).join(" "))
+    $(".loader").hide()
+    Swal.fire(`Land Added`)
+  })
+}
+
+if(userData.land.length==0)addLand();
+
 var data = {
-  labels: userData.land[$("#land-data").val()].sales.map((e)=>e.date),
+  labels: userData.land.length>0?userData.land[$("#land-data").val()].sales.map((e)=>e.date):[],
   series: [
-    userData.land[$("#land-data").val()].sales.map((e)=>e.amount),
-    userData.land[$("#land-data").val()].sales.map((e)=>e.profit)
+    userData.land.length>0?userData.land[$("#land-data").val()].sales.map((e)=>e.amount):[],
+    userData.land.length>0?userData.land[$("#land-data").val()].sales.map((e)=>e.profit):[]
   ]
 };
 
@@ -251,30 +293,34 @@ var responsiveOptions = [
   }]
 ];
 
-new Chartist.Bar('#ct-chart', data, options, responsiveOptions);
-  // var chart2 = new Chartist.Bar(
-  //   "#ct-chart",
-  //   {
-  //     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-  //     series: [
-  //       [9, 5, 3, 7, 5, 10, 3],
-  //       [6, 3, 9, 5, 4, 6, 4],
-  //     ],
-  //   },
-  //   {
-  //     axisX: {
-  //       // On the x-axis start means top and end means bottom
-  //       position: "end",
-  //       showGrid: false,
-  //     },
-  //     axisY: {
-  //       // On the y-axis start means left and end means right
-  //       position: "start",
-  //     },
-  //     high: "12",
-  //     low: "0",
-  //     plugins: [Chartist.plugins.tooltip()],
-  //   }
-  // );
+var chart=new Chartist.Bar('#ct-chart', data, options, responsiveOptions);
 
-  // var chart = [chart2];
+const dashboard = document.getElementById('landManagement')
+const shop = document.getElementById('shopping')
+const loans = document.getElementById('loans')
+const orders = document.getElementById('orders')
+function routeToShop() {
+    loans.style.display = 'none'
+    shop.style.display = 'block'
+    orders.style.display = 'none'
+    dashboard.style.display = 'none'
+}
+function routeToDashboard() { 
+  loans.style.display = 'none'
+  shop.style.display = 'none'
+  orders.style.display = 'none'
+  dashboard.style.display = 'block'
+}
+function routeToLoans() {
+    loans.style.display = 'block'
+    shop.style.display = 'none'
+    orders.style.display = 'none'
+    dashboard.style.display = 'none'
+}
+function routeToOrders() {
+    loans.style.display = 'none'
+    shop.style.display = 'none'
+    orders.style.display = 'block'
+    dashboard.style.display = 'none'
+}
+

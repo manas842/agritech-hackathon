@@ -80,8 +80,7 @@
 
     <script>
         const signUp = document.getElementById('xs-signup-form')
-        if(document.cookie.split('=')[0] === 'userToken'){
-            console.log(document.cookie.split('=')[1])
+        if(document.cookie.split('=')[0] === 'token'){
             window.location.href ='/dashboard/'
         }
         function validate(){
@@ -109,9 +108,6 @@
                 password,
             }
             postData('/auth/signup/',userCred)
-            .then((data) => {
-                console.log(data);
-            });
         }
         function showError(e){
             const errorArea = document.getElementById('errorArea')
@@ -120,17 +116,13 @@
                 errorArea.innerHTML=''
             },4000)
         }
-        function setCookie(cname, cvalue, exdays) {
+        function setCookie(cname, cvalue) {
             const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
+            d.setTime(d.getTime() + (5 * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         async function postData(url , data) {
-            // const response = await fetch(url, {
-            //     method: 'POST',
-            //     body: JSON.stringify(data)
-            // });
             $.ajax({
                 type: 'POST',
                 url,
@@ -138,11 +130,9 @@
                 contentType: "application/json",
                 dataType: 'json'
             }).then((response)=>{
-                setCookie('userToken',response.data,5);
-                console.log('cookie set',response.data)
-                window.location.assign("/dashboard/")
-                })
-            }
+                setCookie('userToken', response.data)
+            })
+        }
 
         
     </script>
